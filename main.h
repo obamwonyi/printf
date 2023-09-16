@@ -86,11 +86,11 @@ int _puts(char *str);
 int _putchar(int c);
 
 /** printFunctions.c module */
-int printfChar(va_list argPointer, paramsT *parameters);
-int printfInt(va_list argPointer, paramsT *parameters);
-int printfString(va_list argPointer, paramsT *parameters);
-int printfPercent(va_list argPointer, paramsT *parameters);
-int printfS(va_list argPointer, paramsT *parameters);
+int printChar(va_list argPointer, paramsT *parameters);
+int printInt(va_list argPointer, paramsT *parameters);
+int printString(va_list argPointer, paramsT *parameters);
+int printPercent(va_list argPointer, paramsT *parameters);
+int printS(va_list argPointer, paramsT *parameters);
 
 /** number.c module */
 char printAddress(va_list argPointer, paramsT *parameters);
