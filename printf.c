@@ -74,6 +74,24 @@ void print_int(va_list ap, int *i)
 }
 
 /**
+ * print_binary - Prints a number of the binary form.
+ * @num: The number.
+ * @i: Pointer to the number of characters printed.
+ *
+ */
+void print_binary(int num, int *i)
+{
+	char c;
+
+	if (num / 2)
+		print_binary(num / 2, i);
+	c = '0' + (num % 2);
+	write(1, &c, 1);
+	*i = *i + 1;
+}
+
+
+/**
 *_printf - mimics the printf function
 *@format: the string to be formatted
 *Return: num of char printed
@@ -100,6 +118,8 @@ int _printf(const char *format, ...)
 				print_string(ap, &count);
 			else if (format[i] == 'i' || format[i] == 'd')
 				print_int(ap, &count);
+			else if (format[i] == 'b')
+				print_binary(va_arg(ap, int), &count);
 			else
 			{
 				print_origin(format[i - 1], &count);
