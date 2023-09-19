@@ -110,5 +110,5 @@ int _printf(const char *format, ...)
 			print_origin(format[i], &count);
 	}
 	va_end(ap);
-	return (count);
+	return (0);
 }
