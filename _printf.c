@@ -62,9 +62,9 @@ int handleSpecifier(const char *format, int numOfPrints, va_list args)
 		break;
 		}
 		case '%'{
-			write(1, format, 1);
-			numOfPrints++;
-			break;
+		write(1, format, 1);
+		numOfPrints++;
+		break;
 		}
 		case 's': {
 		write(1, format, strlen(format));
