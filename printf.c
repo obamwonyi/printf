@@ -4,11 +4,11 @@
 #include <stdio.h>
 
 /**
- * print_char - Prints char to the standard output.
- * @ap: The address of the char.
- * @i: The number of the characters printed.
- *
- */
+*print_char - handlse char
+*@ap: va_list
+*@i: int
+*Return: void
+*/
 void print_char(va_list ap, int *i)
 {
 	char c;
@@ -19,11 +19,11 @@ void print_char(va_list ap, int *i)
 }
 
 /**
- * print_string - Prints a string to the standard output.
- * @ap: A pointer to the string.
- * @i: The number of characters printed.
- *
- */
+*print_string - handles string
+*@ap: va_list
+*@i: int
+*Return: void
+*/
 void print_string(va_list ap, int *i)
 {
 	char *str;
@@ -43,11 +43,11 @@ void print_string(va_list ap, int *i)
 }
 
 /**
- * print_origin - Prints the origing char from the format argument to stdout.
- * @c: The character.
- * @i: The numbers of characters printed.
- *
- */
+*print_origin - default
+*@c: char
+*@i: int
+*Return: void
+*/
 void print_origin(char c, int *i)
 {
 	write(1, &c, 1);
@@ -55,11 +55,30 @@ void print_origin(char c, int *i)
 }
 
 /**
- * _printf - produces output accouding th a format.
- * @format: The format string.
- *
- * Return: The number of characters printed.
- */
+*print_int - handle int
+*@ap: va_list
+*@i: int
+*Return: void
+*/
+void print_int(va_list ap, int *i)
+{
+	int num = va_arg(ap, int);
+	char buffer[20];
+	int written = snprintf(buffer, sizeof(buffer), "%d", num);
+
+	if (written >= 0 && written < ((int)sizeof(buffer)))
+	{
+		write(1, buffer, written);
+		*i += written;
+	}
+}
+
+/**
+*_printf - mimics the printf function
+*@format: the string to be formatted
+*Return: num of char printed
+*/
+>>>>>>> 18de8ac149effdffbbd25edfa1c503336d9f0a50
 int _printf(const char *format, ...)
 {
 	int i, count;
@@ -80,6 +99,8 @@ int _printf(const char *format, ...)
 				print_origin(format[i], &count);
 			else if (format[i] == 's')
 				print_string(ap, &count);
+			else if (format[i] == 'i' || format[i] == 'd')
+				print_int(ap, &count);
 			else if (format[i] == '\0')
 			{
 				print_origin(format[i - 1], &count);
