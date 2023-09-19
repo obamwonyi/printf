@@ -80,6 +80,16 @@ int _printf(const char *format, ...)
 				print_origin(format[i], &count);
 			else if (format[i] == 's')
 				print_string(ap, &count);
+			else if (format[i] == '\0')
+			{
+				print_origin(format[i - 1], &count);
+				break;
+			}
+			else
+			{
+				print_origin(format[i - 1], &count);
+				print_origin(format[i], &count);
+			}
 		}
 		else
 			print_origin(format[i], &count);
