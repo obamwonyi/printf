@@ -69,7 +69,6 @@ int _printf(const char *format, ...)
 	count = 0;
 	if (format == NULL)
 		return (-1);
-	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
 			if (format[i] == '%')
@@ -86,6 +85,5 @@ int _printf(const char *format, ...)
 				print_origin(format[i], &count);
 		}
 		va_end(ap);
-	}
 	return (count);
 }
