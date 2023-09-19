@@ -67,22 +67,23 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = 0;
-	if (format == NULL)
-		return (-1);
-	for (i = 0; format[i] != '\0'; i++)
+	if (format != NULL)
 	{
-		if (format[i] == '%')
+		for (i = 0; format[i] != '\0'; i++)
 		{
-			i++;
-			if (format[i] == 'c')
-				print_char(ap, &count);
-			else if (format[i] == '%')
+			if (format[i] == '%')
+			{
+				i++;
+				if (format[i] == 'c')
+					print_char(ap, &count);
+				else if (format[i] == '%')
+					print_origin(format[i], &count);
+				else if (format[i] == 's')
+					print_string(ap, &count);
+			}
+			else
 				print_origin(format[i], &count);
-			else if (format[i] == 's')
-				print_string(ap, &count);
 		}
-		else
-			print_origin(format[i], &count);
 	}
 	va_end(ap);
 	return (count);
