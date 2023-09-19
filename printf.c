@@ -3,15 +3,27 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/**
+*print_char - handlse char
+*@ap: va_list
+*@i: int
+*Return: void
+*/
 void print_char(va_list ap, int *i)
 {
 	char c;
-	
+
 	c = (char)va_arg(ap, int);
 	write(1, &c, 1);
 	*i = *i + 1;
 }
 
+/**
+*print_string - handles string
+*@ap: va_list
+*@i: int
+*Return: void
+*/
 void print_string(va_list ap, int *i)
 {
 	char *str;
@@ -23,20 +35,30 @@ void print_string(va_list ap, int *i)
 	{
 		for (j = 0; str[j] != '\0'; j++)
 		{
-			 c = str[j];
-		 	write(1, &c, 1);
+			c = str[j];
+			write(1, &c, 1);
 			*i = *i + 1;
 		}
 	}
 }
 
+/**
+*print_origin - default
+*@c: char
+*@i: int
+*Return: void
+*/
 void print_origin(char c, int *i)
 {
 	write(1, &c, 1);
 	*i = *i + 1;
 }
 
-
+/**
+*_printf - mimics the printf function
+*@format: the string to be formatted
+*Return: num of char printed
+*/
 int _printf(const char *format, ...)
 {
 	int i, count;
@@ -44,6 +66,11 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = 0;
+
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	if (format != NULL)
 	{
 		for (i = 0; format[i] != '\0'; i++)
