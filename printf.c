@@ -55,6 +55,25 @@ void print_origin(char c, int *i)
 }
 
 /**
+*print_int - handle int
+*@ap: va_list
+*@i: int
+*Return: void
+*/
+void print_int(va_list ap, int *i)
+{
+	int num = va_arg(ap, int);
+	char buffer[sizeof(ap)];
+	int written = snprintf(buffer, sizeof(buffer), "%d", num);
+
+	if (written >= 0 && written < sizeof(buffer))
+	{
+		write(1, buffer, written);
+		*i += written;
+	}
+}
+
+/**
 *_printf - mimics the printf function
 *@format: the string to be formatted
 *Return: num of char printed
@@ -84,6 +103,8 @@ int _printf(const char *format, ...)
 					print_origin(format[i], &count);
 				else if (format[i] == 's')
 					print_string(ap, &count);
+				else if (format[i] == 'i' || format[i] == 'd')
+					print_int(ap, &count);
 				else
 				{
 					print_origin(format[i - 1], &count);
