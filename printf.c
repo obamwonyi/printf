@@ -24,10 +24,11 @@ void print_char(va_list ap, int *i)
 void print_string(va_list ap, int *i)
 {
 	char *str = va_arg(ap, char *);
+	int j;
 
 	if (str != NULL)
 	{
-		for (int j = 0; str[j] != '\0'; j++)
+		for (j = 0; str[j] != '\0'; j++)
 		{
 			write(1, &str[j], 1);
 			(*i)++;
