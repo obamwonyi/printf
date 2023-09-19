@@ -78,7 +78,6 @@ void print_int(va_list ap, int *i)
 *@format: the string to be formatted
 *Return: num of char printed
 */
->>>>>>> 18de8ac149effdffbbd25edfa1c503336d9f0a50
 int _printf(const char *format, ...)
 {
 	int i, count;
@@ -101,11 +100,6 @@ int _printf(const char *format, ...)
 				print_string(ap, &count);
 			else if (format[i] == 'i' || format[i] == 'd')
 				print_int(ap, &count);
-			else if (format[i] == '\0')
-			{
-				print_origin(format[i - 1], &count);
-				break;
-			}
 			else
 			{
 				print_origin(format[i - 1], &count);
