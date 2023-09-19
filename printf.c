@@ -67,7 +67,8 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	count = 0;
-	if (format != NULL)
+	if (format == NULL)
+		return (-1);
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
@@ -80,11 +81,6 @@ int _printf(const char *format, ...)
 					print_origin(format[i], &count);
 				else if (format[i] == 's')
 					print_string(ap, &count);
-				else
-				{
-					print_origin(format[i - 1], &count);
-					print_origin(format[i], &count);
-				}
 			}
 			else
 				print_origin(format[i], &count);
