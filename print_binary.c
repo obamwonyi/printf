@@ -16,4 +16,3 @@ void print_binary(int num, int *i)
 	write(1, &c, 1);
 	*i = *i + 1;
 }
-
