@@ -63,10 +63,10 @@ void print_origin(char c, int *i)
 void print_int(va_list ap, int *i)
 {
 	int num = va_arg(ap, int);
-	char buffer[sizeof(ap)];
+	char buffer[20];
 	int written = snprintf(buffer, sizeof(buffer), "%d", num);
 
-	if (written >= 0 && written < sizeof(buffer))
+	if (written >= 0 && written < ((int)sizeof(buffer)))
 	{
 		write(1, buffer, written);
 		*i += written;
