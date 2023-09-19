@@ -1,9 +1,5 @@
 #include "main.h"
 
-int handleSpecifier(const char *format, int numOfPrints, va_list args);
-
-void handlesInt(const char *format, va_list args);
-
 
 /**
 *_printf - a function that mimics stdio.h library printf() function
