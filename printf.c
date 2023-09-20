@@ -34,6 +34,17 @@ void print_string(va_list ap, int *i)
 			(*i)++;
 		}
 	}
+	else
+	{
+		char *nullStr = "(null)";
+		int j;
+
+		for (j = 0; nullStr[j] != '\0'; j++)
+		{
+			write(1, &nullStr[j], 1);
+			(*i)++;
+		}
+	}
 }
 
 /**
@@ -98,7 +109,6 @@ int _printf(const char *format, ...)
 				print_binary(va_arg(ap, int), &count);
 			else
 			{
-				fprintf(stderr, "Unknown format specifier: %%%c\n", format[i]);
 				print_origin(format[i - 1], &count);
 				print_origin(format[i], &count);
 			}
