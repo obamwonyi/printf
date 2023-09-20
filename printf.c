@@ -103,12 +103,6 @@ int _printf(const char *format, ...)
 				print_origin(format[i], &count);
 			else if (format[i] == 's')
 				print_string(ap, &count);
-			else if (format[i] == '\n' || format[i] == '\t' || '\r')
-				print_special_char(format[i], &count);
-			else if (format[i] == '\v' || format[i] == '\f')
-				other_special_char(format[i], &count);
-			else if (format[i] == '\\' || format[i] == '\"' || format[i] == '\'')
-				other_special_char(format[i], &count);
 			else if (format[i] == 'i' || format[i] == 'd')
 				print_int(ap, &count);
 			else if (format[i] == 'b')
