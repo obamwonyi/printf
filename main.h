@@ -4,5 +4,5 @@
 #include <unistd.h>
 #include <stdio.h>
 int _printf(const char *format, ...);
-void print_binary(int num, int *i);
+void print_binary(long num, int *i);
 #endif
