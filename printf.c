@@ -55,8 +55,7 @@ void print_string(va_list ap, int *i)
 */
 void print_origin(char c, int *i)
 {
-	if (c != '\0')
-		write(1, &c, 1);
+	write(1, &c, 1);
 	(*i)++;
 }
 
@@ -98,6 +97,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+				return (-1);
 			if (format[i] == 'c')
 				print_char(ap, &count);
 			else if (format[i] == '%')
@@ -108,11 +109,6 @@ int _printf(const char *format, ...)
 				print_int(ap, &count);
 			else if (format[i] == 'b')
 				print_binary(va_arg(ap, int), &count);
-			else if (format[i] == '\0')
-			{
-				print_origin('\0', &count);
-				i--;
-			}
 			else
 			{
 				print_origin(format[i - 1], &count);
