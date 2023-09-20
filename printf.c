@@ -109,6 +109,7 @@ int _printf(const char *format, ...)
 				print_binary(va_arg(ap, int), &count);
 			else
 			{
+				fprintf(stderr, "Unknown format specifier: %%%c\n", format[i]);
 				print_origin(format[i - 1], &count);
 				print_origin(format[i], &count);
 			}
