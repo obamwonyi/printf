@@ -108,7 +108,7 @@ int _printf(const char *format, ...)
 			else if (format[i] == 'b')
 				print_binary(va_arg(ap, int), &count);
 			else if (format[i] == '\0')
-				break;
+				i--;
 			else
 			{
 				print_origin(format[i - 1], &count);
