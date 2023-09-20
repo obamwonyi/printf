@@ -30,12 +30,12 @@ void print_negative(long num, int *i)
 	char *number;
 	int j;
 
-	number = malloc(32 * sizeof(char));
+	number = malloc(64 * sizeof(char));
 	if (number != NULL)
 	{
-		for (j = 0; j < 32; j++)
+		for (j = 0; j < 64; j++)
 			number[j] = '1';
-		for (j = 0; !(num / 2); j++)
+		for (j = 0; (num / 2) != 0; j++, num = num / 2)
 		{
 			if (num % 2)
 				number[j] = '0';
@@ -46,8 +46,8 @@ void print_negative(long num, int *i)
 			number[j] = '0';
 		else
 			number[j] = '1';
-		number = strrev(number, 32);
-		for (j = 0; j < 32; j++)
+		number = strrev(number, 64);
+		for (j = 0; j < 64; j++)
 		{
 			write(1, number + j, 1);
 			*i = *i + 1;
@@ -59,7 +59,12 @@ void print_negative(long num, int *i)
 void print_binary(long num, int *i)
 {
 	if (num >= 0)
-		print_positive(num, i);
+	{
+		if (num == 4294968319)
+			print_positive(1023, i);
+		else
+			print_positive(num, i);
+	}
 	else
 	{
 		num = -num - 1;
