@@ -5,6 +5,4 @@
 #include <stdio.h>
 int _printf(const char *format, ...);
 void print_binary(int num, int *i);
-void print_special_char(char c, int *i);
-void other_special_char(char c, int *i);
 #endif
