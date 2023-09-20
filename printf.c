@@ -55,7 +55,8 @@ void print_string(va_list ap, int *i)
 */
 void print_origin(char c, int *i)
 {
-	write(1, &c, 1);
+	if (c != '\0')
+		write(1, &c, 1);
 	(*i)++;
 }
 
