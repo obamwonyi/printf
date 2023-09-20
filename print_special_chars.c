@@ -17,8 +17,12 @@ void print_special_char(char c, int *i)
 			write(1, "\\t", 2);
 			*i += 2;
 			break;
+		case '\r':
+			write(1, "\\r", 2);
+			*i += 2;
+			break;
 		default:
-		write(1, &c, 1);
-		(*i)++;
+			write(1, &c, 1);
+			(*i)++;
 	}
 }
