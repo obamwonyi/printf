@@ -34,17 +34,6 @@ void print_string(va_list ap, int *i)
 			(*i)++;
 		}
 	}
-	else
-	{
-		char *nullStr = "(null)";
-		int j;
-
-		for (j = 0; nullStr[j] != '\0'; j++)
-		{
-			write(1, &nullStr[j], 1);
-			(*i)++;
-		}
-	}
 }
 
 /**
