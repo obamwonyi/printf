@@ -44,6 +44,7 @@ void print_positive(long num, int *i)
 *@i: pointer to int
 *Return: void
 */
+/*
 void print_negative(long num, int *i)
 {
 	char *number;
@@ -73,7 +74,7 @@ void print_negative(long num, int *i)
 		}
 		free(number);
 	}
-}
+}*/
 
 /**
 *print_binary - print binary
@@ -90,9 +91,10 @@ void print_binary(long num, int *i)
 		else
 			print_positive(num, i);
 	}
+	/*
 	else
 	{
 		num = -num - 1;
 		print_negative(num, i);
-	}
+	}*/
 }
