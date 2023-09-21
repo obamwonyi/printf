@@ -12,7 +12,7 @@ void number_handeler(char format, va_list ap, int *i)
 	if (format == 'i' || format == 'd')
 		print_int(ap, i);
 	else if (format == 'b')
-		print_binary(va_arg(ap, long), i);
+		print_binary(va_arg(ap, unsigned int), i);
 	else if (format == 'u')
 		print_unsigned_int(ap, i);
 	else if (format == 'o')
