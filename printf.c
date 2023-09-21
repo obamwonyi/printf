@@ -2,25 +2,25 @@
 
 /**
  * number_handeler - Handels all types of numbers.
- * @c: The specifier.
+ * @format: The specifier.
  * @ap: The poiner to next argument in the printf function.
  * @i: The address to the counter of characters number printed.
  *
  */
-void number_handeler(char c, va_list ap, int *i)
+void number_handeler(char format, va_list ap, int *i)
 {
-	if (format[i] == 'i' || format[i] == 'd')
-		print_int(ap, &count);
-	else if (format[i] == 'b')
-		print_binary(va_arg(ap, long), &count);
-	else if (format[i] == 'u')
-		print_unsigned_int(ap, &count);
-	else if (format[i] == 'o')
-		print_octal(ap, &count);
-	else if (format[i] == 'x')
-		print_hex_lower(ap, &count);
-	else if (format[i] == 'X')
-		print_hex_upper(ap, &count);
+	if (format == 'i' || format == 'd')
+		print_int(ap, i);
+	else if (format == 'b')
+		print_binary(va_arg(ap, long), i);
+	else if (format == 'u')
+		print_unsigned_int(ap, i);
+	else if (format == 'o')
+		print_octal(ap, i);
+	else if (format == 'x')
+		print_hex_lower(ap, i);
+	else if (format == 'X')
+		print_hex_upper(ap, i);
 }
 
 /**
