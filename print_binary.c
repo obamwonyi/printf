@@ -1,6 +1,12 @@
 #include "main.h"
 #include <stdlib.h>
 
+/**
+*strrev - func
+*@str: string
+*@len: length
+*Return: char
+*/
 char *strrev(char *str, int len)
 {
 	char tmp;
@@ -14,6 +20,13 @@ char *strrev(char *str, int len)
 	}
 	return (str);
 }
+
+/**
+*print_positive - print positive
+*@num: long type
+*@i: pointer to int
+*Return:void
+*/
 void print_positive(long num, int *i)
 {
 	char c;
@@ -25,6 +38,12 @@ void print_positive(long num, int *i)
 	*i = *i + 1;
 }
 
+/**
+*print_negative - print negative
+*@num: long type
+*@i: pointer to int
+*Return: void
+*/
 void print_negative(long num, int *i)
 {
 	char *number;
@@ -56,6 +75,12 @@ void print_negative(long num, int *i)
 	}
 }
 
+/**
+*print_binary - print binary
+*@num: long type
+*@i: pointer to int
+*Return: void
+*/
 void print_binary(long num, int *i)
 {
 	if (num >= 0)
@@ -71,4 +96,3 @@ void print_binary(long num, int *i)
 		print_negative(num, i);
 	}
 }
-
